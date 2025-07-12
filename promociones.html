@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Like Delivery - Promociones</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="logo-banner">
+        <img src="images/logo.png" alt="Sushi Like Delivery Logo">
+    </div>
+
+    <div id="sidebar">
+        <button id="toggle-sidebar">☰</button>
+        <nav>
+            <ul>
+                <li><a href="inicio.html" data-section="inicio">Inicio</a></li>
+                <li><a href="rolls.html" data-section="rolls">Rolls</a></li>
+                <li><a href="tablas.html" data-section="tablas">Tablas</a></li>
+                <li><a href="promociones.html" data-section="promociones">Promociones</a></li>
+                <li><a href="snacks.html" data-section="snacks">Snacks y Extras</a></li>
+                <li><a href="bebidas.html" data-section="bebidas">Bebidas</a></li>
+                <li><a href="carrito.html" data-section="carrito">Carrito</a></li>
+                <li><a href="contacto.html" data-section="contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="main-content" class="sidebar-hidden">
+        <section id="promociones" class="content-section active">
+            <h2>Promociones Vigentes</h2>
+            <div class="daily-promotions">
+                <h3>¡TODOS LOS DÍAS!</h3>
+                <p>3x2 en Rolls</p>
+            </div>
+            <div class="daily-promotions">
+                <h3>LUNES Y MARTES</h3>
+                <p>20% en Rolls</p>
+            </div>
+            <div class="daily-promotions">
+                <h3>MIÉRCOLES Y JUEVES</h3>
+                <p>15% en Rolls</p>
+            </div>
+            <div class="daily-promotions">
+                <h3>VIERNES Y SÁBADOS</h3>
+                <p>Retiro en Local y Pago en Efectivo</p>
+            </div>
+            <p class="promo-note">Promociones NO Válidas para Días Festivos y Vísperas</p>
+            <div class="super-promos-section">
+                <h3>SUPER PROMOS (Detalle)</h3>
+                <div id="promos-super-detail" class="product-grid"></div>
+                <p class="promo-note">SUPER PROMOS NO TIENEN CAMBIO</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
