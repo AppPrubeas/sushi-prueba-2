@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Like Delivery - Tu Sushi Favorito a Domicilio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="logo-banner">
+        <img src="images/logo.png" alt="Sushi Like Delivery Logo">
+    </div>
+
+    <div id="sidebar">
+        <button id="toggle-sidebar">☰</button>
+        <nav>
+            <ul>
+                <li><a href="#inicio" data-section="inicio">Inicio</a></li>
+                <li><a href="#rolls" data-section="rolls">Rolls</a></li>
+                <li><a href="#tablas" data-section="tablas">Tablas</a></li>
+                <li><a href="#promociones" data-section="promociones">Promociones</a></li>
+                <li><a href="#snacks" data-section="snacks">Snacks y Extras</a></li>
+                <li><a href="#bebidas" data-section="bebidas">Bebidas</a></li>
+                <li><a href="#carrito" data-section="carrito">Carrito</a></li>
+                <li><a href="#contacto" data-section="contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="main-content">
+        <section id="inicio" class="content-section active">
+            <h1>Bienvenido a Sushi Like Delivery</h1>
+            <div id="carousel" class="carousel">
+                </div>
+            <div class="promotions-list">
+                <h2>Promociones Especiales</h2>
+                </div>
+        </section>
+
+        <section id="rolls" class="content-section">
+            <h2>Nuestros Rolls</h2>
+            <div class="product-category">
+                <h3>FUTOMAKI <small>(Roll Gigante de 10 Cortes Envuelto en Alga Nori)</small></h3>
+                <div id="futomaki-rolls" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>HOSOMAKI <small>(Roll de 6 Cortes Envuelto en Alga Nori)</small></h3>
+                <div id="hosomaki-rolls" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>SAKE ROLLS <small>(Roll de 8 Cortes Envuelto en Salmón)</small></h3>
+                <div id="sake-rolls" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>URAMAKI ROLLS <small>(Roll de 8 Cortes Envuelto en Sésamo, Amapola o Coco/Merquén)</small></h3>
+                <div id="uramaki-rolls" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>AVOCADO ROLLS <small>(Roll de 8 Cortes Envuelto en Palta)</small></h3>
+                <div id="avocado-rolls" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>CREAM ROLLS <small>(Roll de 8 Cortes Envuelto en Queso Crema)</small></h3>
+                <div id="cream-rolls" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>TEMPURAS/PANKO <small>(Roll de 8 Cortes Fritos en Tempura y Panko)</small></h3>
+                <div id="tempuras-panko-rolls" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>SPECIAL ROLLS <small>(Variedades de Rolls. Especialidades de la casa.)</small></h3>
+                <div id="special-rolls" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>ROLLS SIN ARROZ <small>(Rolls de 8 cortes, 5 ingredientes y sin arroz)</small></h3>
+                <div id="rolls-sin-arroz" class="product-grid"></div>
+            </div>
+        </section>
+
+        <section id="tablas" class="content-section">
+            <h2>Tablas de Sushi</h2>
+            <div class="product-category">
+                <h3>TABLAS CLÁSICAS</h3>
+                <div id="tablas-clasicas" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>SUPER PROMOS <small>(No tienen cambio)</small></h3>
+                <div id="super-promos" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>OTRAS TABLAS</h3>
+                <div id="otras-tablas" class="product-grid"></div>
+            </div>
+        </section>
+
+        <section id="promociones" class="content-section">
+            <h2>Promociones Vigentes</h2>
+            <div class="daily-promotions">
+                <h3>¡TODOS LOS DÍAS!</h3>
+                <p>3x2 en Rolls</p>
+            </div>
+            <div class="daily-promotions">
+                <h3>LUNES Y MARTES</h3>
+                <p>20% en Rolls</p>
+            </div>
+            <div class="daily-promotions">
+                <h3>MIÉRCOLES Y JUEVES</h3>
+                <p>15% en Rolls</p>
+            </div>
+            <div class="daily-promotions">
+                <h3>VIERNES Y SÁBADOS</h3>
+                <p>Retiro en Local y Pago en Efectivo</p>
+            </div>
+            <p class="promo-note">Promociones NO Válidas para Días Festivos y Vísperas</p>
+            <div class="super-promos-section">
+                <h3>SUPER PROMOS (Detalle)</h3>
+                <div id="promos-super-detail" class="product-grid"></div>
+                <p class="promo-note">SUPER PROMOS NO TIENEN CAMBIO</p>
+            </div>
+        </section>
+
+        <section id="snacks" class="content-section">
+            <h2>Snacks y Complementos</h2>
+            <div class="product-category">
+                <h3>SASHIMI</h3>
+                <div id="sashimi-items" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>SNACK TEMPURIZADOS</h3>
+                <div id="snack-tempurizados-items" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>NIGIRIS</h3>
+                <div id="nigiris-items" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>NIGIRIS CRISPY <small>(14 UNIDADES)</small></h3>
+                <div id="nigiris-crispy-items" class="product-grid"></div>
+            </div>
+             <div class="product-category">
+                <h3>GOHAN <small>(Arroz)</small></h3>
+                <div id="gohan-items" class="product-grid"></div>
+            </div>
+            <div class="product-category">
+                <h3>EXTRAS</h3>
+                <div id="extras-items" class="product-grid"></div>
+            </div>
+        </section>
+
+        <section id="bebidas" class="content-section">
+            <h2>Bebidas</h2>
+            <div id="bebidas-list" class="product-grid"></div>
+        </section>
+
+        <section id="carrito" class="content-section">
+            <h2>Tu Carrito</h2>
+            <div id="cart-items">
+                <p>El carrito está vacío.</p>
+            </div>
+            <div id="cart-summary">
+                <p>Total: $<span id="cart-total">0.00</span></p>
+                <button id="checkout-btn">Finalizar Pedido</button>
+            </div>
+            <h3>Seguimiento de Pedido</h3>
+            <input type="text" id="tracking-input" placeholder="Ingresa tu número de seguimiento">
+            <button id="track-order-btn">Seguir Pedido</button>
+            <div id="tracking-info"></div>
+        </section>
+
+        <section id="contacto" class="content-section">
+            <h2>Contacto y Ubicación</h2>
+            <p><strong>Teléfono:</strong> +56 32 2122263</p>
+            <p><strong>Dirección:</strong> Calle Latorre 292, Local A (Esquina Madrid), Villa Alemana</p>
+            <p><strong>Instagram:</strong> <a href="https://www.instagram.com/sushi.like.delivery" target="_blank">@sushi.like.delivery</a></p>
+            <p><strong>Facebook:</strong> <a href="https://www.facebook.com/SushiLikeDeliveryVA" target="_blank">Sushi Like Delivery V-A</a></p>
+            <p>Reparto a Domicilio disponible</p>
+            <p>Redcompra disponible</p>
+            <p>Horario sujeto a modificación. Actualización Septiembre 2024.</p>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
