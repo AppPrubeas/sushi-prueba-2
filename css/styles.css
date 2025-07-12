@@ -1,0 +1,382 @@
+/* General Body and HTML styles */
+body {
+    margin: 0;
+    font-family: 'Teko', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden; /* Previene el scroll horizontal cuando el sidebar está fuera de vista */
+}
+
+/* Logo Banner */
+#logo-banner {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#logo-banner img {
+    max-height: 80px; /* Ajusta según sea necesario */
+    width: auto;
+}
+
+/* Sidebar */
+#sidebar {
+    background-color: #555;
+    color: white;
+    width: 250px; /* Ancho fijo para la barra lateral */
+    position: fixed;
+    top: 0;
+    height: 100%;
+    padding-top: 100px; /* Espacio para el banner del logo */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    z-index: 999;
+    /* Estado inicial: oculto */
+    left: -250px; /* Mueve el sidebar fuera de la pantalla a la izquierda */
+    transition: left 0.3s ease; /* Transición suave para mostrar/ocultar */
+    overflow-y: auto; /* Permite el desplazamiento para muchos elementos del menú */
+}
+
+#sidebar.open { /* Clase que se agregará por JS cuando el sidebar esté abierto */
+    left: 0;
+}
+
+#sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-bottom: 1px solid #666;
+    transition: background-color 0.3s ease;
+}
+
+#sidebar nav ul li a:hover,
+#sidebar nav ul li a.active-section {
+    background-color: #777;
+}
+
+/* Botón para alternar la barra lateral */
+#toggle-sidebar {
+    background-color: #880000; /* Color rojo */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: fixed; /* Mantenlo fijo en la pantalla */
+    top: 10px; /* Alineado con el banner del logo */
+    left: 10px; /* Posición inicial cuando el sidebar está oculto */
+    z-index: 1001; /* Por encima del sidebar y el contenido principal */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: left 0.3s ease; /* Transición suave cuando el sidebar se abre */
+}
+
+/* Área de contenido principal */
+#main-content {
+    margin-left: 0; /* Ancho completo cuando el sidebar está oculto */
+    padding: 120px 20px 20px 20px; /* Espacio para el banner del logo */
+    transition: margin-left 0.3s ease; /* Transición suave para el desplazamiento del contenido */
+}
+
+/* Cuando el sidebar está abierto, ajusta el margen del contenido principal */
+body.sidebar-active #main-content {
+    margin-left: 250px; /* Desplaza el contenido a la derecha para dejar espacio al sidebar */
+}
+
+/* Cuando el sidebar está abierto, ajusta la posición del botón de alternar */
+body.sidebar-active #toggle-sidebar {
+    left: 260px; /* Mueve el botón a la derecha del sidebar abierto */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%; /* El sidebar ocupa todo el ancho en pantallas pequeñas */
+        left: -100%; /* Oculto por defecto */
+        padding-top: 100px;
+    }
+
+    #sidebar.open {
+        left: 0; /* Visible a pantalla completa cuando está abierto */
+    }
+
+    #toggle-sidebar {
+        top: 10px;
+        left: 10px; /* Permanece a la izquierda */
+        z-index: 1001; /* Asegura que siempre esté arriba */
+    }
+
+    body.sidebar-active #main-content {
+        margin-left: 0; /* El contenido principal no se desplaza, el sidebar se superpone */
+    }
+
+    body.sidebar-active #toggle-sidebar {
+        left: 10px; /* El botón permanece a la izquierda, el sidebar se superpone */
+    }
+
+    #logo-banner {
+        padding: 5px 0; /* Menor padding en móvil */
+    }
+
+    #logo-banner img {
+        max-height: 60px; /* Logo más pequeño en móvil */
+    }
+
+    #main-content {
+        padding-top: 80px; /* Ajusta el padding para un banner de logo más pequeño */
+    }
+}
+
+/* Estilos para las secciones de contenido */
+.content-section {
+    display: none; /* Las secciones están ocultas por defecto en el HTML individual */
+}
+
+/* Estilos de productos */
+.product-category {
+    margin-bottom: 30px;
+}
+
+.product-category h3 {
+    background-color: #880000;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el botón al final */
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.product-item h4 {
+    margin-top: 0;
+    color: #880000;
+    font-size: 1.3em;
+}
+
+.product-item p {
+    font-size: 0.9em;
+    color: #666;
+    flex-grow: 1; /* Permite que la descripción ocupe el espacio disponible */
+}
+
+.product-item .price {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.product-item button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Alinea el botón en la parte inferior */
+}
+
+.product-item button:hover {
+    background-color: #0056b3;
+}
+
+/* Carousel Styles */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.carousel img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Promotions List */
+.promotions-list {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.promotions-list h2 {
+    color: #880000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.daily-promotions {
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.daily-promotions h3 {
+    color: #555;
+    margin-top: 0;
+    font-size: 1.1em;
+}
+
+.daily-promotions p {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+}
+
+.promo-note {
+    font-size: 0.9em;
+    color: #880000;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Carrito Styles */
+#cart-items {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    min-height: 100px; /* Para que siempre tenga un tamaño */
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item span {
+    font-size: 1.1em;
+}
+
+.cart-item .remove-from-cart-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.cart-item .remove-from-cart-btn:hover {
+    background-color: #c82333;
+}
+
+#cart-summary {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+#cart-summary p {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#cart-summary #checkout-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#cart-summary #checkout-btn:hover {
+    background-color: #218838;
+}
+
+#tracking-input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#track-order-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#tracking-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #eaf6ff;
+    border: 1px solid #b3d7ff;
+    border-radius: 8px;
+    color: #004085;
+}
+
+#tracking-info p {
+    margin: 0;
+    font-weight: bold;
+}
