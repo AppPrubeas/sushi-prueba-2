@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SushiExpress - Snacks</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="toggle-sidebar">✕ Ocultar Menú</button>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>SushiExpress</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rolls.html">Rolls</a></li>
+                    <li><a href="tablas.html">Tablas</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="snacks.html" class="active">Snacks</a></li>
+                    <li><a href="extras.html">Extras</a></li>
+                    <li><a href="carrito.html">Carrito</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <h1>Nuestros Deliciosos Snacks</h1>
+            <div class="product-grid">
+                <div class="product-card" data-id="gyozas-pollo" data-name="Gyozas de Pollo" data-price="4500">
+                    <img src="images/gyozas-pollo.jpg" alt="Gyozas de Pollo">
+                    <h3>Gyozas de Pollo (6 unidades)</h3>
+                    <p>Empanaditas japonesas de pollo al vapor o fritas.</p>
+                    <p class="price">$4.500</p>
+                    <button class="add-to-cart-btn">Agregar al Carrito</button>
+                </div>
+                <div class="product-card" data-id="edamame" data-name="Edamame" data-price="3200">
+                    <img src="images/edamame.jpg" alt="Edamame">
+                    <h3>Edamame</h3>
+                    <p>Vainas de soya al vapor, ligeramente saladas.</p>
+                    <p class="price">$3.200</p>
+                    <button class="add-to-cart-btn">Agregar al Carrito</button>
+                </div>
+                </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

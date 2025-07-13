@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SushiExpress - Contacto</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="toggle-sidebar">✕ Ocultar Menú</button>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>SushiExpress</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rolls.html">Rolls</a></li>
+                    <li><a href="tablas.html">Tablas</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="snacks.html">Snacks</a></li>
+                    <li><a href="extras.html">Extras</a></li>
+                    <li><a href="carrito.html">Carrito</a></li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section class="contact-section">
+                <h2>Contáctanos</h2>
+                <p>¿Tienes alguna pregunta, sugerencia o necesitas ayuda con tu pedido? ¡Estamos aquí para asistirte!</p>
+                <form class="contact-form">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+                <p style="margin-top: 30px;">También puedes encontrarnos en:</p>
+                <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
+                <p><strong>Email:</strong> info@sushiexpress.cl</p>
+                <p><strong>Dirección:</strong> Av. Siempre Viva 742, Quilpué, Valparaíso</p>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

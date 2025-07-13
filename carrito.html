@@ -1,0 +1,54 @@
+!DOCTYPE html
+html lang=es
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleSushiExpress - Carrito y Seguimientotitle
+    link rel=stylesheet href=cssstyle.css
+head
+body
+    button class=toggle-sidebar✕ Ocultar Menúbutton
+    div class=container
+        aside class=sidebar
+            h2SushiExpressh2
+            nav
+                ul
+                    lia href=index.htmlInicioali
+                    lia href=rolls.htmlRollsali
+                    lia href=tablas.htmlTablasali
+                    lia href=promociones.htmlPromocionesali
+                    lia href=snacks.htmlSnacksali
+                    lia href=extras.htmlExtrasali
+                    lia href=carrito.html class=activeCarritoali
+                    lia href=contacto.htmlContactoali
+                ul
+            nav
+        aside
+
+        main class=main-content
+            h1Tu Carrito de Comprash1
+            section class=cart-items
+                div id=cart-items-container
+                    div
+                div class=cart-total id=cart-total
+                    Total $0.00
+                div
+                button id=checkout-btn class=checkout-btnFinalizar Pedidobutton
+            section
+
+            hr
+
+            h1Seguimiento de Pedidoh1
+            section class=order-tracking-section
+                pIngresa tu número de seguimiento para ver el estado de tu pedido.p
+                input type=text id=order-id-input placeholder=Ej 123456789012
+                button id=track-order-btnRastrear Pedidobutton
+                div id=tracking-results
+                    div
+            section
+        main
+    div
+
+    script src=jsscript.jsscript
+body
+html

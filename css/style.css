@@ -1,0 +1,468 @@
+/* Importa la tipografía Teko de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #f12121;
+    --secondary-color: #ffffff;
+    --background-color: #e4e4e4;
+    --text-color: #000000;
+}
+
+body {
+    font-family: 'Teko', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Panel Lateral Retráctil */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+    position: fixed; /* Mantiene el sidebar fijo */
+    height: 100%; /* Ocupa toda la altura */
+    overflow-y: auto; /* Permite scroll si hay muchos ítems */
+    z-index: 1000;
+}
+
+.sidebar.hidden {
+    transform: translateX(-250px);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1.5em;
+    display: block;
+    padding: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Contenido Principal */
+.main-content {
+    margin-left: 250px; /* Deja espacio para el sidebar */
+    padding: 20px;
+    flex-grow: 1;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content.expanded {
+    margin-left: 0; /* Ocupa todo el ancho cuando el sidebar está oculto */
+}
+
+/* Botón para ocultar/mostrar sidebar */
+.toggle-sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1001; /* Asegura que esté por encima del sidebar */
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+    color: var(--text-color);
+    font-size: 1.8em;
+}
+
+.product-card p {
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.product-card .price {
+    font-size: 1.6em;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #d11a1a;
+}
+
+/* Carrusel de Imágenes */
+.carousel-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 400px; /* Altura fija para las imágenes del carrusel */
+    object-fit: cover;
+}
+
+.carousel-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-nav .prev {
+    left: 10px;
+}
+
+.carousel-nav .next {
+    right: 10px;
+}
+
+/* Promociones en Inicio */
+.promotions-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.promotions-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 30px;
+}
+
+.promotion-item {
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 25px;
+    display: inline-block;
+    width: 45%; /* Para que se vean dos por fila en pantallas grandes */
+    margin: 15px;
+    vertical-align: top; /* Alinea en la parte superior */
+}
+
+.promotion-item h3 {
+    font-size: 2.2em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.promotion-item p {
+    font-size: 1.3em;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Carrito de Compras */
+.cart-items {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info h4 {
+    margin: 0;
+    font-size: 1.5em;
+    color: var(--text-color);
+}
+
+.cart-item-info p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 1.1em;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item-controls button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.cart-item-controls span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 20px;
+    color: var(--primary-color);
+}
+
+.checkout-btn {
+    display: block;
+    width: 80%;
+    margin: 30px auto 0;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 15px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.8em;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #d11a1a;
+}
+
+/* Seguimiento de Pedido */
+.order-tracking-section {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.order-tracking-section input[type="text"] {
+    width: 70%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+.order-tracking-section button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.4em;
+    transition: background-color 0.3s ease;
+}
+
+.order-tracking-section button:hover {
+    background-color: #d11a1a;
+}
+
+#tracking-results {
+    margin-top: 25px;
+    font-size: 1.3em;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/* Sección Contacto */
+.contact-section {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.contact-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 25px;
+}
+
+.contact-section p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 22px); /* Ajuste para el padding y borde */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.4em;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.contact-form button:hover {
+    background-color: #d11a1a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        transform: translateX(-200px); /* Oculto por defecto en móviles */
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding-top: 60px; /* Espacio para el botón de toggle */
+    }
+
+    .toggle-sidebar {
+        left: 10px;
+        top: 10px;
+        z-index: 1002; /* Para que esté por encima del sidebar cuando se muestra */
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .carousel-slide img {
+        height: 250px;
+    }
+
+    .promotion-item {
+        width: 90%; /* Ocupa casi todo el ancho en móviles */
+        margin: 15px auto;
+    }
+
+    .order-tracking-section input[type="text"] {
+        width: 90%;
+    }
+}
