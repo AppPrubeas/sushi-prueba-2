@@ -372,6 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleSidebarBtn.addEventListener('click', () => {
             sidebar.classList.toggle('hidden');
             mainContent.classList.toggle('expanded');
+            // Actualiza el texto del botón basado en el estado del sidebar
             if (sidebar.classList.contains('hidden')) {
                 toggleSidebarBtn.textContent = '☰ Mostrar Menú';
             } else {
@@ -440,7 +441,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = '<p>El carrito está vacío.</p>';
-            } else {
+            }
+            else {
                 cart.forEach(item => {
                     const itemElement = document.createElement('div');
                     itemElement.classList.add('cart-item');
