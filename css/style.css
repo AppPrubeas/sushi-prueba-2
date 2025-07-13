@@ -43,23 +43,22 @@ header {
     display: flex; /* Para centrar el logo */
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
-    min-height: 65px; /* Ajusté la altura mínima del header para el logo más pequeño */
+    min-height: 40px; /* Ajusté la altura mínima del header para el logo más pequeño */
 }
 
-
 header img.logo-banner {
-    max-height: 50px; /* Altura máxima del logo REDUCIDA a 50px */
+    max-height: 25px; /* Altura máxima del logo REDUCIDA a 25px */
     width: auto; /* Ancho automático para mantener la proporción */
     display: block; /* Asegura que la imagen sea un bloque para centrar */
     margin: 0 auto; /* Centra la imagen horizontalmente si es más pequeña que el header */
 }
-
 
 /* Sidebar Estático y Más Pequeño */
 .content-wrapper {
     display: flex;
     flex-grow: 1; /* Ocupa el espacio restante después del header y antes del footer */
 }
+
 .sidebar {
     width: var(--sidebar-width);
     background-color: #222; /* Fondo oscuro para el sidebar */
