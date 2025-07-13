@@ -27,19 +27,20 @@
 
         <main class="main-content">
             <h1>Nuestras Promociones Exclusivas</h1>
-            <div class="promotions-section" style="padding: 0;">
-                <div class="promotion-item">
-                    <h3>Martes de 3x2 en Nigiris</h3>
-                    <p>¡Compra dos nigiris y llévate el tercero gratis! Válido solo los Martes.</p>
-                </div>
-                <div class="promotion-item">
-                    <h3>Descuento del 15% en Primer Pedido</h3>
-                    <p>¡Usa el código BIENVENIDO15 en tu primer pedido y obtén un 15% de descuento!</p>
-                </div>
-                </div>
+            <section class="product-list" id="product-list-container">
+                <div class="product-grid" id="products-grid">
+                    </div>
+            </section>
         </main>
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.getElementById('product-list-container')) {
+                displayProducts(menuData['Promociones'], 'Promociones');
+            }
+        });
+    </script>
 </body>
 </html>
