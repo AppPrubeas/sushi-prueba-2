@@ -20,6 +20,12 @@ body {
     color: var(--text-color);
     display: block; /* Para que header ocupe 100% y luego content-wrapper */
     min-height: 100vh; /* Asegura que el body ocupe al menos el alto de la ventana */
+    /* NUEVO: Fondo de imagen estático y repetido en el body */
+    background-image: url('images/sidebar-bg.png'); /* Ruta a tu imagen de fondo */
+    background-repeat: repeat; /* Repetir la imagen si es necesario */
+    background-attachment: fixed; /* Hace que la imagen de fondo sea estática al hacer scroll */
+    background-position: center center; /* Centra la imagen de fondo */
+    background-size: auto; /* Ajusta el tamaño de la imagen */
 }
 
 /* Encabezado */
@@ -60,12 +66,7 @@ header img.logo-banner {
     padding: 20px 0;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     flex-shrink: 0; /* Evita que el sidebar se encoja */
-    /* NUEVO: Fondo de imagen estático y repetido */
-    background-image: url('../images/sidebar-bg.png'); /* Ruta a tu imagen de fondo */
-    background-repeat: repeat; /* Repetir la imagen si es necesario */
-    background-attachment: fixed; /* Hace que la imagen de fondo sea estática al hacer scroll */
-    background-position: center center; /* Centra la imagen de fondo */
-    background-size: auto; /* Ajusta el tamaño de la imagen */
+    /* ANTES AQUI ESTABA LA IMAGEN DE FONDO, AHORA ESTA EN EL BODY */
 }
 
 .sidebar h2 {
@@ -458,7 +459,8 @@ footer {
         width: 100%; /* Sidebar ocupa todo el ancho */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         padding-bottom: 0;
-        background-attachment: scroll; /* Para móviles, la imagen puede no ser fija para mejor rendimiento */
+        /* Para móviles, la imagen de fondo en el body puede no ser fija para mejor rendimiento */
+        /* background-attachment: scroll; */
     }
 
     .sidebar nav ul {
