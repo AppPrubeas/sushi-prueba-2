@@ -8,38 +8,40 @@
 </head>
 <body>
     <header>
-         <img src="images/logo.png" alt="Sushi Like Logo" class="logo-banner">
+        <img src="images/logo.png" alt="Sushi Like Logo" class="logo-banner">
     </header>
 
-    <div class="sidebar">
-        <h2>Menú</h2>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="rolls.html">Rolls</a></li>
-                <li><a href="tablas.html">Tablas</a></li>
-                <li><a href="promociones.html">Promociones</a></li>
-                <li><a href="snacks.html">Snacks</a></li>
-                <li><a href="extras.html">Extras y Bebidas</a></li>
-                <li><a href="carrito.html">Mi Carrito</a></li>
-                <li><a href="seguimiento.html">Seguimiento de Pedido</a></li>
-            </ul>
-        </nav>
-    </div>
+    <div class="content-wrapper">
+        <div class="sidebar">
+            <h2>Menú</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rolls.html">Rolls</a></li>
+                    <li><a href="tablas.html">Tablas</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="snacks.html">Snacks</a></li>
+                    <li><a href="extras.html">Extras y Bebidas</a></li>
+                    <li><a href="carrito.html">Mi Carrito</a></li>
+                    <li><a href="seguimiento.html" class="active">Seguimiento de Pedido</a></li>
+                </ul>
+            </nav>
+        </div>
 
-    <main class="main-content">
-        <section class="tracking-section">
-            <h2>Seguimiento de Pedido</h2>
-            <div class="tracking-input-group">
-                <label for="order-id-input">Ingresa tu número de pedido:</label>
-                <input type="text" id="order-id-input" placeholder="Ej: 123456789012">
-                <button id="track-order-btn">Rastrear Pedido</button>
-            </div>
-            <div id="tracking-results">
-                <p>Ingresa un número de pedido para ver su estado.</p>
-            </div>
-        </section>
-    </main>
+        <main class="main-content">
+            <section class="tracking-section">
+                <h2>Seguimiento de Pedido</h2>
+                <div class="tracking-input-group">
+                    <label for="order-id-input">Ingresa tu número de seguimiento:</label>
+                    <input type="text" id="order-id-input" placeholder="Ej: 123456789012">
+                    <button id="track-order-btn">Rastrear Pedido</button>
+                </div>
+                <div id="tracking-results">
+                    <p>Ingresa un número de pedido para ver su estado.</p>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2024 Sushi Like. Todos los derechos reservados.</p>
