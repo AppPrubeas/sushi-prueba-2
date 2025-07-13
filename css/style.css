@@ -21,7 +21,7 @@ body {
     display: block; /* Para que header ocupe 100% y luego content-wrapper */
     min-height: 100vh; /* Asegura que el body ocupe al menos el alto de la ventana */
     /* NUEVO: Fondo de imagen estático y repetido en el body */
-    background-image: url('images/sidebar-bg.png'); /* Ruta a tu imagen de fondo */
+    background-image: url('images/sushi-background.jpg'); /* Ruta a tu imagen de fondo */
     background-repeat: repeat; /* Repetir la imagen si es necesario */
     background-attachment: fixed; /* Hace que la imagen de fondo sea estática al hacer scroll */
     background-position: center center; /* Centra la imagen de fondo */
