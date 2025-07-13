@@ -3,63 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SushiExpress - Inicio</title>
+    <title>Sushi Like - Inicio</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="images/favicon.png" type="image/png"> </head>
+</head>
 <body>
-    <button class="toggle-sidebar">✕ Ocultar Menú</button>
-    <div class="container">
-        <aside class="sidebar">
-            <h2>SushiExpress</h2>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Inicio</a></li>
-                    <li><a href="rolls.html">Rolls</a></li>
-                    <li><a href="tablas.html">Tablas</a></li>
-                    <li><a href="promociones.html">Promociones</a></li>
-                    <li><a href="snacks.html">Snacks</a></li>
-                    <li><a href="extras.html">Extras</a></li>
-                    <li><a href="carrito.html">Carrito</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-        </aside>
+    <header>
+        <h1>SUSHI LIKE</h1>
+    </header>
 
-        <main class="main-content">
-            <section class="hero-section">
-                <h1>Bienvenido a SushiExpress</h1>
-                <p>Tu sushi favorito, fresco y a domicilio.</p>
-            </section>
+    <div class="sidebar">
+        <button class="toggle-sidebar">✕ Ocultar Menú</button>
+        <h2>Menú</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="rolls.html">Rolls</a></li>
+                <li><a href="tablas.html">Tablas</a></li>
+                <li><a href="promociones.html">Promociones</a></li>
+                <li><a href="snacks.html">Snacks</a></li>
+                <li><a href="extras.html">Extras y Bebidas</a></li>
+                <li><a href="carrito.html">Mi Carrito</a></li>
+                <li><a href="seguimiento.html">Seguimiento de Pedido</a></li>
+            </ul>
+        </nav>
+    </div>
 
-            <section class="carousel-container">
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="carousel-container">
                 <div class="carousel-slide">
-                    <img src="images/sushi-banner1.jpg" alt="Banner de Sushi 1">
-                    <img src="images/sushi-banner2.jpg" alt="Banner de Sushi 2">
-                    <img src="images/sushi-banner3.jpg" alt="Banner de Sushi 3">
+                    <img src="images/carousel1.jpg" alt="Sushi variado en oferta">
+                    <img src="images/carousel2.jpg" alt="Promo de rolls frescos">
+                    <img src="images/carousel3.jpg" alt="Tabla de sushi premium">
                 </div>
                 <div class="carousel-nav">
                     <button class="prev">&#10094;</button>
                     <button class="next">&#10095;</button>
                 </div>
-            </section>
-            
-            <section class="promotions-section">
-                <h2>Promociones Destacadas</h2>
-                <div class="promotion-item">
-                    <h3>2x1 en Rolls Seleccionados</h3>
-                    <p>¡Disfruta de tus rolls favoritos al doble de la diversión! Válido de Lunes a Miércoles.</p>
+            </div>
+            <h2>¡Bienvenido a Sushi Like!</h2>
+            <p>Descubre la mejor selección de sushi fresco y delicioso en Quilpué. Explora nuestro menú y haz tu pedido hoy mismo.</p>
+        </section>
+
+        <section class="featured-products">
+            <h2>Nuestros Favoritos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="images/sake-panko.jpg" alt="Sake Panko">
+                    <h3>SAKE PANKO</h3>
+                    <p>Salmón, Queso Crema, Ciboulette (Frito en Panko)</p>
+                    <p class="price">$6.300</p>
+                    <button class="add-to-cart-btn" data-id="sake-panko" data-name="SAKE PANKO" data-price="6300">Agregar al Carrito</button>
                 </div>
-                <div class="promotion-item">
-                    <h3>Combo Familiar SushiExpress</h3>
-                    <p>40 piezas variadas + 2 Bebidas por $24.990. ¡Perfecto para compartir!</p>
+                <div class="product-card">
+                    <img src="images/avo-chicken.jpg" alt="Avo Chicken">
+                    <h3>AVO CHICKEN</h3>
+                    <p>Pollo Teriyaki, Queso Crema, Cebollín (Envuelto en Palta)</p>
+                    <p class="price">$6.200</p>
+                    <button class="add-to-cart-btn" data-id="avo-chicken" data-name="AVO CHICKEN" data-price="6200">Agregar al Carrito</button>
                 </div>
-                <div class="promotion-item">
-                    <h3>Envío Gratis en Pedidos Mayores a $15.000</h3>
-                    <p>Haz tu pedido y nosotros nos encargamos del delivery. ¡Aprovecha!</p>
+                <div class="product-card">
+                    <img src="images/tabla-2-38.jpg" alt="Tabla 2 - 38 Piezas">
+                    <h3>TABLA 2 - 38 Piezas</h3>
+                    <p>Variedad de rolls para 2 personas</p>
+                    <p class="price">$17.990</p>
+                    <button class="add-to-cart-btn" data-id="tabla-2-38-piezas" data-name="TABLA 2 - 38 Piezas" data-price="17990">Agregar al Carrito</button>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sushi Like. Todos los derechos reservados.</p>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>
