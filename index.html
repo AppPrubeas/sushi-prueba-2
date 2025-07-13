@@ -8,70 +8,71 @@
 </head>
 <body>
     <header>
-        <h1>SUSHI LIKE</h1>
+        <img src="images/logo.png" alt="Sushi Like Logo" class="logo-banner">
     </header>
 
-    <div class="sidebar">
-        <button class="toggle-sidebar">✕ Ocultar Menú</button>
-        <h2>Menú</h2>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="rolls.html">Rolls</a></li>
-                <li><a href="tablas.html">Tablas</a></li>
-                <li><a href="promociones.html">Promociones</a></li>
-                <li><a href="snacks.html">Snacks</a></li>
-                <li><a href="extras.html">Extras y Bebidas</a></li>
-                <li><a href="carrito.html">Mi Carrito</a></li>
-                <li><a href="seguimiento.html">Seguimiento de Pedido</a></li>
-            </ul>
-        </nav>
+    <div class="content-wrapper">
+        <div class="sidebar">
+            <h2>Menú</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rolls.html">Rolls</a></li>
+                    <li><a href="tablas.html">Tablas</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="snacks.html">Snacks</a></li>
+                    <li><a href="extras.html">Extras y Bebidas</a></li>
+                    <li><a href="carrito.html">Mi Carrito</a></li>
+                    <li><a href="seguimiento.html">Seguimiento de Pedido</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="images/carousel1.jpg" alt="Sushi variado en oferta">
+                        <img src="images/carousel2.jpg" alt="Promo de rolls frescos">
+                        <img src="images/carousel3.jpg" alt="Tabla de sushi premium">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+                    </div>
+                </div>
+                <h2>¡Bienvenido a Sushi Like!</h2>
+                <p>Descubre la mejor selección de sushi fresco y delicioso en Quilpué. Explora nuestro menú y haz tu pedido hoy mismo.</p>
+            </section>
+
+            <section class="featured-products">
+                <h2>Nuestros Favoritos</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="images/sake-panko.jpg" alt="Sake Panko">
+                        <h3>SAKE PANKO</h3>
+                        <p>Salmón, Queso Crema, Ciboulette (Frito en Panko)</p>
+                        <p class="price">$6.300</p>
+                        <button class="add-to-cart-btn" data-id="sake-panko" data-name="SAKE PANKO" data-price="6300">Agregar al Carrito</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/avo-chicken.jpg" alt="Avo Chicken">
+                        <h3>AVO CHICKEN</h3>
+                        <p>Pollo Teriyaki, Queso Crema, Cebollín (Envuelto en Palta)</p>
+                        <p class="price">$6.200</p>
+                        <button class="add-to-cart-btn" data-id="avo-chicken" data-name="AVO CHICKEN" data-price="6200">Agregar al Carrito</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/tabla-2-38.jpg" alt="Tabla 2 - 38 Piezas">
+                        <h3>TABLA 2 - 38 Piezas</h3>
+                        <p>Variedad de rolls para 2 personas</p>
+                        <p class="price">$17.990</p>
+                        <button class="add-to-cart-btn" data-id="tabla-2-38-piezas" data-name="TABLA 2 - 38 Piezas" data-price="17990">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
-
-    <main class="main-content">
-        <section class="hero-section">
-            <div class="carousel-container">
-                <div class="carousel-slide">
-                    <img src="images/carousel1.jpg" alt="Sushi variado en oferta">
-                    <img src="images/carousel2.jpg" alt="Promo de rolls frescos">
-                    <img src="images/carousel3.jpg" alt="Tabla de sushi premium">
-                </div>
-                <div class="carousel-nav">
-                    <button class="prev">&#10094;</button>
-                    <button class="next">&#10095;</button>
-                </div>
-            </div>
-            <h2>¡Bienvenido a Sushi Like!</h2>
-            <p>Descubre la mejor selección de sushi fresco y delicioso en Quilpué. Explora nuestro menú y haz tu pedido hoy mismo.</p>
-        </section>
-
-        <section class="featured-products">
-            <h2>Nuestros Favoritos</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <img src="images/sake-panko.jpg" alt="Sake Panko">
-                    <h3>SAKE PANKO</h3>
-                    <p>Salmón, Queso Crema, Ciboulette (Frito en Panko)</p>
-                    <p class="price">$6.300</p>
-                    <button class="add-to-cart-btn" data-id="sake-panko" data-name="SAKE PANKO" data-price="6300">Agregar al Carrito</button>
-                </div>
-                <div class="product-card">
-                    <img src="images/avo-chicken.jpg" alt="Avo Chicken">
-                    <h3>AVO CHICKEN</h3>
-                    <p>Pollo Teriyaki, Queso Crema, Cebollín (Envuelto en Palta)</p>
-                    <p class="price">$6.200</p>
-                    <button class="add-to-cart-btn" data-id="avo-chicken" data-name="AVO CHICKEN" data-price="6200">Agregar al Carrito</button>
-                </div>
-                <div class="product-card">
-                    <img src="images/tabla-2-38.jpg" alt="Tabla 2 - 38 Piezas">
-                    <h3>TABLA 2 - 38 Piezas</h3>
-                    <p>Variedad de rolls para 2 personas</p>
-                    <p class="price">$17.990</p>
-                    <button class="add-to-cart-btn" data-id="tabla-2-38-piezas" data-name="TABLA 2 - 38 Piezas" data-price="17990">Agregar al Carrito</button>
-                </div>
-            </div>
-        </section>
-    </main>
 
     <footer>
         <p>&copy; 2024 Sushi Like. Todos los derechos reservados.</p>
