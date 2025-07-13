@@ -362,33 +362,6 @@ let cart = [];
 // Evento que se dispara cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Lógica del Panel Lateral Retráctil ---
-    const sidebar = document.querySelector('.sidebar');
-    const toggleSidebarBtn = document.querySelector('.toggle-sidebar');
-    const mainContent = document.querySelector('.main-content');
-    const navLinks = document.querySelectorAll('.sidebar ul li a');
-
-    if (toggleSidebarBtn && sidebar && mainContent) {
-        toggleSidebarBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('hidden');
-            mainContent.classList.toggle('expanded');
-            // Actualiza el texto del botón basado en el estado del sidebar
-            if (sidebar.classList.contains('hidden')) {
-                toggleSidebarBtn.textContent = '☰ Mostrar Menú';
-            } else {
-                toggleSidebarBtn.textContent = '✕ Ocultar Menú';
-            }
-        });
-    }
-
-    // Marca el enlace activo en el sidebar
-    const currentPage = window.location.pathname.split('/').pop();
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
-        }
-    });
-
     // --- Lógica del Carrusel (solo en index.html) ---
     const carouselSlide = document.querySelector('.carousel-slide');
     if (carouselSlide) {
@@ -562,6 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Carga dinámica de productos al entrar a las páginas de menú ---
+    const currentPage = window.location.pathname.split('/').pop();
     // Llama a la función para inicializar la carga de productos de Rolls
     if (document.getElementById('roll-categories')) { // Identifica si estamos en rolls.html
         loadProductsPage('Rolls');
