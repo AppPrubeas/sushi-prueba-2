@@ -27,25 +27,21 @@
 
         <main class="main-content">
             <h1>Nuestras Tablas Variadas</h1>
-            <div class="product-grid">
-                <div class="product-card" data-id="tabla-20-piezas" data-name="Tabla 20 Piezas" data-price="14990">
-                    <img src="images/tabla-20.jpg" alt="Tabla de 20 Piezas">
-                    <h3>Tabla de 20 Piezas</h3>
-                    <p>5 Hot California, 5 Tori Roll, 5 Nikkei Roll, 5 Tempura Maki.</p>
-                    <p class="price">$14.990</p>
-                    <button class="add-to-cart-btn">Agregar al Carrito</button>
-                </div>
-                <div class="product-card" data-id="tabla-40-piezas" data-name="Tabla 40 Piezas" data-price="26990">
-                    <img src="images/tabla-40.jpg" alt="Tabla de 40 Piezas">
-                    <h3>Tabla de 40 Piezas</h3>
-                    <p>Variedad de nuestros rolls más populares. Ideal para 2-3 personas.</p>
-                    <p class="price">$26.990</p>
-                    <button class="add-to-cart-btn">Agregar al Carrito</button>
-                </div>
-                </div>
+            <section class="product-list" id="product-list-container">
+                <div class="product-grid" id="products-grid">
+                    </div>
+            </section>
         </main>
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.getElementById('product-list-container')) {
+                // Las tablas no tienen subcategorías, se cargan directamente
+                displayProducts(menuData['Tablas'], 'Tablas');
+            }
+        });
+    </script>
 </body>
 </html>
