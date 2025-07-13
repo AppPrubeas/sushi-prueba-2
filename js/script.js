@@ -153,7 +153,7 @@ const menuData = {
                 { "id": "ebi-rainbow", "name": "EBI RAINBOW", "ingredients": "Camarón Panko, Queso Crema, Cebollín (Envuelto en Palta/Salmón, 8 Cortes)", "price": 6800, "image": "ebi-rainbow.jpg" },
                 { "id": "sake-ebi-grill", "name": "SAKE EBI GRILL", "ingredients": "Camarón, Queso Crema, Cebollín (Envuelto en Salmón Grillado, 8 Cortes)", "price": 6500, "image": "sake-ebi-grill.jpg" },
                 { "id": "coco-tempura", "name": "COCO TEMPURA", "ingredients": "Salmón, Queso Crema, Pimentón (Envuelto en Tempura/Coco, 8 Cortes)", "price": 6500, "image": "coco-tempura.jpg" },
-                { "id": "green-mix", "name": "GREEN MIX", "ingredients": "Salmón, Camarón, Queso Crema (Envuelto en Ciboulette, 8 Cortes)", "price": 6400, "image": "green-mix.jpg" },
+                { "id": "green-mix", "name": "GREEN MIX", "ingredients": "Salmón, Camarón, Queso Crema, Ciboulette (Envuelto en Ciboulette, 8 Cortes)", "price": 6400, "image": "green-mix.jpg" },
                 { "id": "chicken-crispy-nuss", "name": "CHICKEN CRISPY NUSS", "ingredients": "Pollo Teriyaki, Queso Crema Panko, Ciboulette (Envuelto en Nuez/Almendra, 8 Cortes)", "price": 6800, "image": "chicken-crispy-nuss.jpg" }
             ]
         },
@@ -282,35 +282,54 @@ function loadProductsPage(mainCategory) {
     const categoriesContainer = document.getElementById('roll-categories'); // Contenedor para los botones de subcategoría
     const productsGrid = document.getElementById('products-grid');
 
-    if (!categoriesContainer || !productsGrid) return; // Salir si los contenedores no existen
+    if (!categoriesContainer && mainCategory === 'Rolls') {
+        // Esto significa que estamos en la página de Rolls pero el contenedor de categorías no existe.
+        // Podría ser un error, o que la página de rolls.html no está bien configurada con el ID 'roll-categories'.
+        // Si no es la página de Rolls, simplemente seguimos.
+    }
 
-    categoriesContainer.innerHTML = ''; // Limpia los botones anteriores
+    if (categoriesContainer) { // Solo limpia y añade botones si el contenedor de categorías existe (ej. en rolls.html)
+        categoriesContainer.innerHTML = ''; // Limpia los botones anteriores
+    }
+
 
     const subCategories = menuData[mainCategory];
 
     // Verifica si la categoría principal tiene subcategorías anidadas (como "Rolls")
     if (Array.isArray(subCategories) && subCategories.every(item => item.category && item.products)) {
         // Es una categoría con subcategorías (ej. Rolls)
-        subCategories.forEach((subCat, index) => {
-            const button = document.createElement('button');
-            button.textContent = subCat.category;
-            button.addEventListener('click', () => {
-                // Remover clase 'active' de todos los botones de categoría
-                document.querySelectorAll('.product-categories button').forEach(btn => {
-                    btn.classList.remove('active');
+        if (categoriesContainer) { // Asegurarse de que el contenedor de categorías existe para Rolls
+            subCategories.forEach((subCat, index) => {
+                const button = document.createElement('button');
+                button.textContent = subCat.category;
+                button.addEventListener('click', () => {
+                    // Remover clase 'active' de todos los botones de categoría
+                    document.querySelectorAll('.product-categories button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    // Añadir clase 'active' al botón clickeado
+                    button.classList.add('active');
+                    displayProducts(subCat.products, subCat.category);
                 });
-                // Añadir clase 'active' al botón clickeado
-                button.classList.add('active');
-                displayProducts(subCat.products, subCat.category);
-            });
-            categoriesContainer.appendChild(button);
+                categoriesContainer.appendChild(button);
 
-            // Cargar la primera subcategoría por defecto al iniciar la página
-            if (index === 0) {
-                button.classList.add('active');
-                displayProducts(subCat.products, subCat.category);
-            }
-        });
+                // Cargar la primera subcategoría por defecto al iniciar la página
+                if (index === 0) {
+                    button.classList.add('active');
+                    displayProducts(subCat.products, subCat.category);
+                }
+            });
+        } else {
+             // Si el contenedor de categorías no existe en la página de Rolls,
+             // cargamos todos los productos de Rolls en el grid principal.
+             // Esto puede ocurrir si se espera que rolls.html muestre todos los rolls sin subcategorías
+             // o si el elemento #roll-categories no está presente.
+             let allRollsProducts = [];
+             subCategories.forEach(subCat => {
+                 allRollsProducts = allRollsProducts.concat(subCat.products);
+             });
+             displayProducts(allRollsProducts, mainCategory);
+        }
     } else {
         // Es una categoría sin subcategorías (ej. Tablas, Snacks, Extras, Promociones)
         // No se crean botones de subcategoría, se muestran todos los productos directamente
@@ -332,7 +351,13 @@ function handleAddToCartClick(event) {
     const productElement = event.target.closest('.product-card');
     const productId = productElement.dataset.id;
     const productName = productElement.dataset.name;
-    const productPrice = parseFloat(productElement.dataset.price);
+    // Parsea el precio, eliminando el signo '$' y el separador de miles '.' si existen
+    let productPriceRaw = productElement.dataset.price;
+    if (typeof productPriceRaw === 'string') {
+        productPriceRaw = productPriceRaw.replace('$', '').replace(/\./g, '');
+    }
+    const productPrice = parseFloat(productPriceRaw);
+
 
     // Asegurarse de que el precio sea un número antes de agregar al carrito
     if (isNaN(productPrice)) {
@@ -536,8 +561,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Carga dinámica de productos al entrar a las páginas de menú ---
     const currentPage = window.location.pathname.split('/').pop();
-    // Llama a la función para inicializar la carga de productos de Rolls
-    if (document.getElementById('roll-categories')) { // Identifica si estamos en rolls.html
+
+    if (currentPage === 'rolls.html') {
         loadProductsPage('Rolls');
     } else if (currentPage === 'tablas.html') {
         loadProductsPage('Tablas');
@@ -547,8 +572,10 @@ document.addEventListener('DOMContentLoaded', () => {
         loadProductsPage('Snacks');
     } else if (currentPage === 'extras.html') {
         loadProductsPage('Extras');
+    } else if (currentPage === 'index.html') {
+        // En index.html, no necesitas cargar todas las categorías,
+        // solo los productos destacados que ya están en el HTML.
+        // Asegúrate de que los botones "Agregar al Carrito" de los productos destacados estén vinculados.
+        attachAddToCartListeners();
     }
-
-    // Asegurarse de que los listeners de "Agregar al Carrito" estén activos al cargar cualquier página
-    attachAddToCartListeners();
 });
