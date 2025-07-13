@@ -8,7 +8,7 @@
     --background-color: #f5f5f5;
     --card-background: #ffffff;
     --border-color: #ddd;
-    --sidebar-width: 220px; /* Ancho fijo para el sidebar estático */
+    --sidebar-width: 165px; /* ANCHO DE BARRA LATERAL REDUCIDO EN UN 25% (antes 220px) */
 }
 
 body {
@@ -60,6 +60,12 @@ header img.logo-banner {
     padding: 20px 0;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     flex-shrink: 0; /* Evita que el sidebar se encoja */
+    /* NUEVO: Fondo de imagen estático y repetido */
+    background-image: url('../images/sidebar-bg.png'); /* Ruta a tu imagen de fondo */
+    background-repeat: repeat; /* Repetir la imagen si es necesario */
+    background-attachment: fixed; /* Hace que la imagen de fondo sea estática al hacer scroll */
+    background-position: center center; /* Centra la imagen de fondo */
+    background-size: auto; /* Ajusta el tamaño de la imagen */
 }
 
 .sidebar h2 {
@@ -452,6 +458,7 @@ footer {
         width: 100%; /* Sidebar ocupa todo el ancho */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         padding-bottom: 0;
+        background-attachment: scroll; /* Para móviles, la imagen puede no ser fija para mejor rendimiento */
     }
 
     .sidebar nav ul {
