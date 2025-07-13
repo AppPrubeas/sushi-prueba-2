@@ -1,54 +1,50 @@
-!DOCTYPE html
-html lang=es
-head
-    meta charset=UTF-8
-    meta name=viewport content=width=device-width, initial-scale=1.0
-    titleSushiExpress - Carrito y Seguimientotitle
-    link rel=stylesheet href=cssstyle.css
-head
-body
-    button class=toggle-sidebar✕ Ocultar Menúbutton
-    div class=container
-        aside class=sidebar
-            h2SushiExpressh2
-            nav
-                ul
-                    lia href=index.htmlInicioali
-                    lia href=rolls.htmlRollsali
-                    lia href=tablas.htmlTablasali
-                    lia href=promociones.htmlPromocionesali
-                    lia href=snacks.htmlSnacksali
-                    lia href=extras.htmlExtrasali
-                    lia href=carrito.html class=activeCarritoali
-                    lia href=contacto.htmlContactoali
-                ul
-            nav
-        aside
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Like - Mi Carrito</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SUSHI LIKE</h1>
+    </header>
 
-        main class=main-content
-            h1Tu Carrito de Comprash1
-            section class=cart-items
-                div id=cart-items-container
-                    div
-                div class=cart-total id=cart-total
-                    Total $0.00
-                div
-                button id=checkout-btn class=checkout-btnFinalizar Pedidobutton
-            section
+    <div class="sidebar">
+        <button class="toggle-sidebar">✕ Ocultar Menú</button>
+        <h2>Menú</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="rolls.html">Rolls</a></li>
+                <li><a href="tablas.html">Tablas</a></li>
+                <li><a href="promociones.html">Promociones</a></li>
+                <li><a href="snacks.html">Snacks</a></li>
+                <li><a href="extras.html">Extras y Bebidas</a></li>
+                <li><a href="carrito.html">Mi Carrito</a></li>
+                <li><a href="seguimiento.html">Seguimiento de Pedido</a></li>
+            </ul>
+        </nav>
+    </div>
 
-            hr
+    <main class="main-content">
+        <section class="cart-section">
+            <h2>Mi Carrito</h2>
+            <div id="cart-items-container">
+                </div>
+            <div id="cart-total">
+                </div>
+            <div class="checkout-btn-container">
+                <button id="checkout-btn">Comprar</button>
+            </div>
+        </section>
+    </main>
 
-            h1Seguimiento de Pedidoh1
-            section class=order-tracking-section
-                pIngresa tu número de seguimiento para ver el estado de tu pedido.p
-                input type=text id=order-id-input placeholder=Ej 123456789012
-                button id=track-order-btnRastrear Pedidobutton
-                div id=tracking-results
-                    div
-            section
-        main
-    div
+    <footer>
+        <p>&copy; 2024 Sushi Like. Todos los derechos reservados.</p>
+    </footer>
 
-    script src=jsscript.jsscript
-body
-html
+    <script src="js/script.js"></script>
+</body>
+</html>
