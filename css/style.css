@@ -47,7 +47,7 @@ header {
 }
 
 header img.logo-banner {
-    max-height: 55px; /* Altura máxima del logo REDUCIDA a 25px */
+    max-height: 70px; /* Altura máxima del logo REDUCIDA a 25px */
     width: auto; /* Ancho automático para mantener la proporción */
     display: block; /* Asegura que la imagen sea un bloque para centrar */
     margin: 0 auto; /* Centra la imagen horizontalmente si es más pequeña que el header */
