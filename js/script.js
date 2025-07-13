@@ -372,6 +372,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Carga de promociones diarias en la sección de Inicio (index.html) ---
+    const homepagePromotionsList = document.querySelector('#inicio .promotions-list');
+    if (homepagePromotionsList) {
+        // Puedes poner una promoción fija o generar una dinámica
+        homepagePromotionsList.innerHTML += `
+            <div class="daily-promotions">
+                <h3>¡Oferta del Día!</h3>
+                <p>¡Disfruta de nuestra <strong>Promoción 3x2 en Rolls!</strong></p>
+                <p>Válida para compras por delivery.</p>
+                <p class="promo-note">Consulta los rolls participantes.</p>
+            </div>
+            <div class="daily-promotions">
+                <h3>Descuento Semanal</h3>
+                <p><strong>20% de descuento</strong> en todos los Rolls.</p>
+                <p class="promo-note">Válido Lunes y Martes.</p>
+            </div>
+        `;
+    }
+
+
     // Llamadas para renderizar cada categoría de productos
     // Estas llamadas solo se ejecutarán si los elementos existen en la página actual
     renderProducts('futomaki-rolls', productsData.futomaki);
@@ -396,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Renderizado de las Super Promos detalladas en la sección de Promociones
-    // Solo si estamos en la página de promociones
+    // Solo si estamos en la página de promociones (promociones.html)
     const promosSuperDetailContainer = document.getElementById('promos-super-detail');
     if (promosSuperDetailContainer) {
         productsData.super_promos.forEach(promo => {
