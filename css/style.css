@@ -1,80 +1,614 @@
-/* ... (tu CSS existente) ... */
+/* css/style.css */
 
-/* Estilos para las categorías de productos (ej. Rolls, Tablas) */
-.product-categories {
-    margin-top: 30px;
-    margin-bottom: 30px;
+/* General Styles & Body */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    color: #333;
+    display: flex;
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+}
+
+/* Header */
+header {
+    background-color: #a00; /* Rojo oscuro para la marca */
+    color: white;
+    padding: 1rem 0;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+/* Layout Principal (Sidebar y Contenido Principal) */
+.sidebar {
+    width: 250px;
+    background-color: #333; /* Gris oscuro para el sidebar */
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: width 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0; /* Evita que el sidebar se encoja */
+    position: sticky; /* Fija el sidebar */
+    top: 0; /* Alinea con la parte superior */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    overflow-y: auto; /* Permite desplazamiento si el contenido es largo */
+}
+
+.sidebar.hidden {
+    width: 0;
+    transform: translateX(-250px); /* Oculta el sidebar completamente */
+    padding: 0;
+    overflow: hidden;
+}
+
+.toggle-sidebar {
+    background-color: #a00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Asegura que el botón ocupe todo el ancho */
+    box-sizing: border-box; /* Incluye padding y border en el ancho */
+}
+
+.toggle-sidebar:hover {
+    background-color: #c00;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #ffd700; /* Dorado para el título del menú */
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #555; /* Gris más claro al pasar el ratón o si está activo */
+    color: #ffd700; /* Dorado para el texto activo */
+}
+
+.main-content {
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    padding: 20px;
+    transition: margin-left 0.3s ease; /* Transición para cuando el sidebar se oculta */
+    max-width: calc(100% - 250px); /* Ancho inicial */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+.main-content.expanded {
+    max-width: 100%; /* Ocupa todo el ancho cuando el sidebar está oculto */
+}
+
+/* Carrusel de Imágenes (Solo para index.html) */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Ajusta el ancho para que las imágenes se estiren */
+}
+
+.carousel-slide img {
+    width: 100%; /* Cada imagen ocupa el 100% del contenedor visible */
+    height: 400px; /* Altura fija para las imágenes del carrusel */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área, recortando si es necesario */
+    flex-shrink: 0; /* Evita que las imágenes se encojan */
+    border-radius: 8px;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.carousel-nav button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Sección de Categorías de Productos (Solo para rolls.html, tablas.html, etc.) */
+.product-sections {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-sections h2 {
+    text-align: center;
+    color: #a00;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.product-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
 }
 
 .product-categories button {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border: none;
-    padding: 12px 20px;
-    margin: 5px;
-    border-radius: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 1.2em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-transform: uppercase;
+    font-size: 1rem;
     font-weight: bold;
+    color: #555;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-.product-categories button:hover {
-    background-color: #d11a1a;
-    transform: translateY(-2px);
-}
-
+.product-categories button:hover,
 .product-categories button.active {
-    background-color: var(--text-color); /* Color de texto para el botón activo */
-    color: var(--secondary-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #a00;
+    color: white;
+    border-color: #a00;
 }
 
-/* Título de la subcategoría */
-.subcategory-title {
-    color: var(--primary-color);
+#current-subcategory-title {
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 2.5em;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-    display: inline-block; /* Para que el borde no ocupe todo el ancho */
+    color: #666;
+    font-size: 1.8rem;
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
-/* Ajustes para las tarjetas de producto si es necesario */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 30px;
+    padding: 20px;
+    justify-items: center; /* Centra las tarjetas en la cuadrícula */
+}
+
 .product-card {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Empuja el botón al final */
-    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura si están en un grid */
-}
-.product-card .price {
-    font-size: 1.6em;
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-top: auto; /* Empuja el precio hacia abajo si hay espacio */
-    margin-bottom: 15px;
-}
-.product-card p {
-    flex-grow: 1; /* Permite que la descripción ocupe el espacio disponible */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    align-items: center;
+    width: 100%; /* Asegura que la tarjeta ocupe el ancho disponible en la columna */
+    max-width: 350px; /* Limita el ancho máximo para tarjetas grandes */
 }
 
-/* Media Queries para responsividad de los botones */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 250px; /* Ancho máximo para la imagen del producto */
+    height: 180px; /* Altura fija para la imagen */
+    object-fit: cover; /* Recorta la imagen para que encaje sin distorsión */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #a00;
+}
+
+.product-card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Permite que el párrafo de ingredientes ocupe el espacio necesario */
+}
+
+.product-card .price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: auto; /* Empuja el precio hacia abajo */
+    margin-bottom: 15px;
+}
+
+.product-card .add-to-cart-btn {
+    background-color: #4CAF50; /* Verde para el botón de agregar al carrito */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Asegura que el botón ocupe todo el ancho de la tarjeta */
+    max-width: 200px; /* Limita el ancho para que no sea excesivamente grande */
+}
+
+.product-card .add-to-cart-btn:hover {
+    background-color: #45a049;
+}
+
+/* Estilos de la página del Carrito (carrito.html) */
+.cart-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.cart-section h2 {
+    text-align: center;
+    color: #a00;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+#cart-items-container {
+    margin-bottom: 30px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px dashed #eee;
+    margin-bottom: 10px;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.cart-item-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.cart-item-info p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item-controls button {
+    background-color: #a00;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item-controls button:hover {
+    background-color: #c00;
+}
+
+.cart-item-controls button[data-action="remove"] {
+    background-color: #dc3545; /* Rojo para eliminar */
+}
+
+.cart-item-controls button[data-action="remove"]:hover {
+    background-color: #c82333;
+}
+
+#cart-total {
+    text-align: right;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #a00;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #eee;
+}
+
+.checkout-btn-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#checkout-btn {
+    background-color: #28a745; /* Verde fuerte para el botón de comprar */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#checkout-btn:hover {
+    background-color: #218838;
+}
+
+/* Estilos de la página de Seguimiento (seguimiento.html) */
+.tracking-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    max-width: 600px; /* Limita el ancho del formulario */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.tracking-section h2 {
+    color: #a00;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.tracking-input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.tracking-input-group label {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.tracking-input-group input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#track-order-btn {
+    background-color: #007bff; /* Azul para el botón de seguimiento */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+#track-order-btn:hover {
+    background-color: #0056b3;
+}
+
+#tracking-results {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: left; /* Alinea el texto a la izquierda para mejor lectura */
+}
+
+#tracking-results p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+#tracking-results ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding: 0;
+}
+
+#tracking-results li {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto; /* Empuja el footer al final de la página */
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Apila el sidebar y el contenido en pantallas pequeñas */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static; /* Ya no es sticky en móvil */
+        transform: translateX(0); /* Asegura que no esté oculto por transformación */
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar.hidden {
+        width: 100%; /* Sigue ocupando el 100% pero el contenido interno se oculta/muestra */
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 15px; /* Mantén un padding horizontal mínimo */
+    }
+
+    .sidebar.hidden .toggle-sidebar {
+        margin-bottom: 0; /* Ajusta el margen si el sidebar está oculto */
+    }
+
+    /* Oculta los elementos internos del sidebar cuando está en modo 'hidden' */
+    .sidebar.hidden ul,
+    .sidebar.hidden h2 {
+        display: none;
+    }
+
+    .toggle-sidebar {
+        width: auto; /* Deja que el botón decida su ancho */
+        margin: 10px auto; /* Centra el botón en pantallas pequeñas */
+        display: block;
+    }
+
+    .main-content {
+        max-width: 100%;
+        padding: 15px;
+        margin-top: 15px; /* Espacio entre el sidebar y el contenido principal */
+    }
+
+    .carousel-slide img {
+        height: 250px; /* Menor altura para el carrusel en móviles */
+    }
+
+    .product-card {
+        padding: 15px;
+    }
+
+    .product-card img {
+        height: 150px;
+    }
+
+    .product-categories {
+        flex-direction: column; /* Apila los botones de categoría */
+        align-items: stretch; /* Estira los botones para ocupar el ancho */
+    }
     .product-categories button {
-        font-size: 1em;
-        padding: 10px 15px;
-        width: calc(50% - 10px); /* Dos botones por fila */
-        margin: 5px 2px;
+        width: 100%;
+    }
+
+    .cart-item {
+        flex-direction: column; /* Apila la info y los controles del carrito */
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .cart-item-controls {
+        width: 100%;
+        justify-content: center; /* Centra los botones de control */
     }
 }
 
 @media (max-width: 480px) {
-    .product-categories button {
-        width: calc(100% - 10px); /* Un botón por fila en pantallas muy pequeñas */
-        margin: 5px 0;
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .sidebar h2 {
+        font-size: 1.5rem;
+    }
+
+    .product-sections h2,
+    .cart-section h2,
+    .tracking-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .product-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .product-card .price {
+        font-size: 1.1rem;
+    }
+
+    .product-card .add-to-cart-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    #checkout-btn,
+    #track-order-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .carousel-slide img {
+        height: 200px;
     }
 }
