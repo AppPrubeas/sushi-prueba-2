@@ -27,32 +27,20 @@
 
         <main class="main-content">
             <h1>Nuestros Extras para tu Pedido</h1>
-            <div class="product-grid">
-                <div class="product-card" data-id="salsa-soya" data-name="Salsa Soya" data-price="500">
-                    <img src="images/salsa-soya.jpg" alt="Salsa Soya">
-                    <h3>Salsa Soya Extra</h3>
-                    <p>Porción adicional de nuestra deliciosa salsa de soya.</p>
-                    <p class="price">$500</p>
-                    <button class="add-to-cart-btn">Agregar al Carrito</button>
-                </div>
-                <div class="product-card" data-id="wasabi" data-name="Wasabi" data-price="300">
-                    <img src="images/wasabi.jpg" alt="Wasabi">
-                    <h3>Wasabi Extra</h3>
-                    <p>Porción extra de wasabi picante.</p>
-                    <p class="price">$300</p>
-                    <button class="add-to-cart-btn">Agregar al Carrito</button>
-                </div>
-                <div class="product-card" data-id="jengibre" data-name="Jengibre Encurtido" data-price="400">
-                    <img src="images/jengibre.jpg" alt="Jengibre Encurtido">
-                    <h3>Jengibre Encurtido</h3>
-                    <p>Jengibre encurtido para limpiar el paladar.</p>
-                    <p class="price">$400</p>
-                    <button class="add-to-cart-btn">Agregar al Carrito</button>
-                </div>
-                </div>
+            <section class="product-list" id="product-list-container">
+                <div class="product-grid" id="products-grid">
+                    </div>
+            </section>
         </main>
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.getElementById('product-list-container')) {
+                displayProducts(menuData['Extras'], 'Extras');
+            }
+        });
+    </script>
 </body>
 </html>
